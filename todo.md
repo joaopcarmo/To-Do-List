@@ -1,7 +1,0 @@
--[X] Criar metas
--[X] Listar metas
-    -Metas realizadas
-    -Metas pendentes
--[X] Marcar/Desmarcar metas realizadas
--Remover metas
--Sistema de mensagens
