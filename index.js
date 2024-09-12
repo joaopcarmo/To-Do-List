@@ -26,18 +26,19 @@ const cadastrarMeta = async () => {
         mensagem = 'A meta não pode ser vazia.'
         return
     }
+
     metas.push(
         { value: meta, checked: false }
     )
-
     mensagem = "Meta cadastrada com sucesso!"
 }
 
 const listarMetas = async () => {
     if (metas.length == 0) {
-        mensagem - "Não existem metas!"
+        mensagem = "Não existem metas!"
         return
     }
+
     const respostas = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para finalizar essa etapa",
         choices: [...metas],
@@ -62,19 +63,21 @@ const listarMetas = async () => {
     })
 
     mensagem = 'Meta(s) marcada(s) como concluída(s)'
+
 }
 
 const metasRealizadas = async () => {
     if (metas.length == 0) {
-        mensagem - "Não existem metas!"
+        mensagem = "Não existem metas!"
         return
     }
+
     const realizadas = metas.filter((meta) => {
         return meta.checked
     })
 
     if (realizadas.length == 0) {
-        console.log('Não existem metas realizadas!')
+        mensagem = 'Não existem metas realizadas! :('
         return
     }
 
@@ -86,15 +89,16 @@ const metasRealizadas = async () => {
 
 const metasAbertas = async () => {
     if (metas.length == 0) {
-        mensagem - "Não existem metas!"
+        mensagem = "Não existem metas!"
         return
     }
+
     const abertas = metas.filter((meta) => {
         return meta.checked != true
     })
 
     if (abertas.length == 0) {
-        mensagem = "Não existem metas abertas! Parabéns!"
+        mensagem = 'Não existem metas abertas! :)'
         return
     }
 
@@ -105,42 +109,42 @@ const metasAbertas = async () => {
 }
 
 const deletarMetas = async () => {
-    if (metas.length == 0) {
-        mensagem - "Não existem metas!"
+    if(metas.length == 0) {
+        mensagem = "Não existem metas!"
         return
     }
+
     const metasDesmarcadas = metas.map((meta) => {
         return { value: meta.value, checked: false }
     })
 
     const itemsADeletar = await checkbox({
-        message: "Selecione  item para deletar",
+        message: "Selecione item para deletar",
         choices: [...metasDesmarcadas],
         instructions: false,
     })
 
     if (itemsADeletar.length == 0) {
-        console.log('Nenhum item para deletar')
+        mensagem = "Nenhum item para deletar!"
         return
     }
 
     itemsADeletar.forEach((item) => {
-        metas.filter((meta) => {
+        metas = metas.filter((meta) => {
             return meta.value != item
-
         })
     })
-    console.log("Meta(s) deletada(s) com sucesso")
+
+    mensagem = "Meta(s) deleta(s) com sucesso!"
 }
 
 const mostrarMensagem = () => {
-    console.clear()
+    console.clear();
 
     if (mensagem != "") {
         console.log(mensagem)
         console.log("")
         mensagem = ""
-
     }
 }
 
@@ -181,7 +185,6 @@ const start = async () => {
                 }
             ]
         })
-
         switch (opcao) {
             case "cadastrar":
                 await cadastrarMeta()
@@ -199,10 +202,10 @@ const start = async () => {
                 await deletarMetas()
                 break
             case "sair":
-                console.log("Até a próxima!")
+                console.log('Até a próxima!')
                 return
         }
     }
 }
 
-start()
+start();
