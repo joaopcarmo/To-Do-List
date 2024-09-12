@@ -15,7 +15,11 @@ Este é um projeto de uma To-Do List interativa desenvolvido em Node.js durante 
 -Biblioteca @inquirer/prompts <br>
 -Manipulação de arquivos com fs/promises <br>
 <br>
-**Como executar**
+**Como executar:**
 -Clone o repositório. <br>
 -Execute npm install para instalar as dependências. <br>
 -Inicie o projeto com node index.js. <br>
+
+**Visualização:**
+https://github.com/user-attachments/assets/66b60643-2cdb-4534-a01b-849ffa473605
+
