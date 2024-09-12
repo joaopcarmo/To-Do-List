@@ -9,13 +9,11 @@ Este é um projeto de uma To-Do List interativa desenvolvido em Node.js durante 
 -Deletar metas selecionadas <br>
 -Persistência de dados em um arquivo JSON <br>
 <br>
-<br>
 **Tecnologias utilizadas:** <br>
 -Javascript <br>
 -Node.js <br>
 -Biblioteca @inquirer/prompts <br>
 -Manipulação de arquivos com fs/promises <br>
-<br>
 <br>
 **Como executar**
 -Clone o repositório. <br>
